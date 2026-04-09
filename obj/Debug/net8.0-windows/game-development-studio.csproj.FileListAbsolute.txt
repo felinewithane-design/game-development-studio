@@ -17,3 +17,5 @@ C:\Users\cupca\source\repos\game-development-studio\obj\Debug\net8.0-windows\gam
 C:\Users\cupca\source\repos\game-development-studio\bin\Debug\net8.0-windows\MaterialSkin.dll
 C:\Users\cupca\source\repos\game-development-studio\obj\Debug\net8.0-windows\game_development_studio.MainForm.resources
 C:\Users\cupca\source\repos\game-development-studio\obj\Debug\net8.0-windows\game-dev.51D6C42F.Up2Date
+C:\Users\cupca\source\repos\game-development-studio\obj\Debug\net8.0-windows\game-development-studio.sourcelink.json
+C:\Users\cupca\source\repos\game-development-studio\obj\Debug\net8.0-windows\game_development_studio.Properties.Resources.resources

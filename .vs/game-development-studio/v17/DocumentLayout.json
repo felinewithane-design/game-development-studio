@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\developmentteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:developmentteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|C:\\Users\\cupca\\source\\repos\\game-development-studio\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,57 +46,116 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Project.cs",
-              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Project.cs",
-              "RelativeDocumentMoniker": "Project.cs",
-              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Project.cs",
-              "RelativeToolTip": "Project.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAUwF4AAAA8AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "DevelopmentTeam.cs",
+              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\DevelopmentTeam.cs",
+              "RelativeDocumentMoniker": "DevelopmentTeam.cs",
+              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\DevelopmentTeam.cs",
+              "RelativeToolTip": "DevelopmentTeam.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAwC0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T20:43:55.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-08T20:07:18.78Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Entity.cs",
-              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Entity.cs",
-              "RelativeDocumentMoniker": "Entity.cs",
-              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Entity.cs",
-              "RelativeToolTip": "Entity.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAgwCYAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.Designer.cs",
+              "RelativeToolTip": "MainForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T20:43:25.608Z"
+              "WhenOpened": "2026-04-08T18:38:42.95Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
+              "Title": "DataManager.cs",
+              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\DataManager.cs",
+              "RelativeDocumentMoniker": "DataManager.cs",
+              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\DataManager.cs",
+              "RelativeToolTip": "DataManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T15:27:16.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAUwHYAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAkwJEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-25T19:51:10.136Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T06:39:29.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Project.cs",
+              "RelativeDocumentMoniker": "Project.cs",
+              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Project.cs",
+              "RelativeToolTip": "Project.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAIwDoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T20:43:55.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Entity.cs",
+              "RelativeDocumentMoniker": "Entity.cs",
+              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Entity.cs",
+              "RelativeToolTip": "Entity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T20:43:25.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T15:56:41.205Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-03-25T15:56:41.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Person.cs",
+              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Person.cs",
+              "RelativeDocumentMoniker": "Person.cs",
+              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Person.cs",
+              "RelativeToolTip": "Person.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAADwvy0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T12:06:13.319Z"
             }
           ]
         }

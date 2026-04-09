@@ -4,8 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace game_development_studio
-{
+namespace game_development_studio {
+
+
+    public interface IEntity
+    {
+        public bool Search(string searchString);
+            string this[int index] { get; }
+    }
+
     public class Entity
     {
         public Guid Id { get; set; }

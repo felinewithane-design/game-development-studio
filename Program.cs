@@ -2,7 +2,7 @@ using game_development_studio;
 using System;
 using System.Windows.Forms;
 
-namespace GameDevelopmentStudio
+namespace game_development_studio
 {
     internal static class Program
     {

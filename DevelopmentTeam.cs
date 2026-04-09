@@ -16,6 +16,7 @@ namespace game_development_studio
 
     public DevelopmentTeam()
         {
+
             TeamName = string.Empty;
             Specialization = string.Empty;
             NumberOfMembers = 0;
@@ -29,6 +30,20 @@ namespace game_development_studio
             LeadDeveloper = leadDeveloper;
         }
 
+        public string this[int index]
+        {
+            get
+            {
+                return index switch
+                {
+                    0 => TeamName ?? "",
+                    1 => Specialization ?? "",
+                    2 => LeadDeveloper ?? "",
+                    3 => NumberOfMembers.ToString(),
+                    _ => throw new IndexOutOfRangeException("Index must be between 0 and 3.")
+                };
+            }
+        }
         public new bool IsValid()
         {
             return base.IsValid()&& 

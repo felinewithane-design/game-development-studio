@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             listViewProjects = new MaterialSkin.Controls.MaterialListView();
             Title = new ColumnHeader();
             Genre = new ColumnHeader();
@@ -47,6 +48,8 @@
             materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             txtGenre = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            searchTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            searchButton = new MaterialSkin.Controls.MaterialButton();
             SuspendLayout();
             // 
             // listViewProjects
@@ -57,7 +60,7 @@
             listViewProjects.Columns.AddRange(new ColumnHeader[] { Title, Genre, Status, StartDate, Deadline });
             listViewProjects.Depth = 0;
             listViewProjects.FullRowSelect = true;
-            listViewProjects.Location = new Point(6, 77);
+            listViewProjects.Location = new Point(6, 160);
             listViewProjects.MinimumSize = new Size(200, 100);
             listViewProjects.MouseLocation = new Point(-1, -1);
             listViewProjects.MouseState = MaterialSkin.MouseState.OUT;
@@ -309,11 +312,63 @@
             materialLabel6.Text = "Genre";
             materialLabel6.Click += materialLabel6_Click;
             // 
+            // searchTextBox
+            // 
+            searchTextBox.AnimateReadOnly = false;
+            searchTextBox.BackgroundImageLayout = ImageLayout.None;
+            searchTextBox.CharacterCasing = CharacterCasing.Normal;
+            searchTextBox.Depth = 0;
+            searchTextBox.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            searchTextBox.HideSelection = true;
+            searchTextBox.Hint = "Search for project...";
+            searchTextBox.LeadingIcon = null;
+            searchTextBox.Location = new Point(27, 88);
+            searchTextBox.MaxLength = 32767;
+            searchTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.PasswordChar = '\0';
+            searchTextBox.PrefixSuffixText = null;
+            searchTextBox.ReadOnly = false;
+            searchTextBox.RightToLeft = RightToLeft.No;
+            searchTextBox.SelectedText = "";
+            searchTextBox.SelectionLength = 0;
+            searchTextBox.SelectionStart = 0;
+            searchTextBox.ShortcutsEnabled = true;
+            searchTextBox.Size = new Size(312, 48);
+            searchTextBox.TabIndex = 14;
+            searchTextBox.TabStop = false;
+            searchTextBox.Text = "type here";
+            searchTextBox.TextAlign = HorizontalAlignment.Left;
+            searchTextBox.TrailingIcon = null;
+            searchTextBox.UseSystemPasswordChar = false;
+            searchTextBox.Click += searchTextBox_Click;
+            // 
+            // searchButton
+            // 
+            searchButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            searchButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            searchButton.Depth = 0;
+            searchButton.HighEmphasis = true;
+            searchButton.Icon = (Image)resources.GetObject("searchButton.Icon");
+            searchButton.Location = new Point(346, 100);
+            searchButton.Margin = new Padding(4, 6, 4, 6);
+            searchButton.MouseState = MaterialSkin.MouseState.HOVER;
+            searchButton.Name = "searchButton";
+            searchButton.NoAccentTextColor = Color.Empty;
+            searchButton.Size = new Size(64, 36);
+            searchButton.TabIndex = 15;
+            searchButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            searchButton.UseAccentColor = false;
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += searchButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1310, 643);
+            Controls.Add(searchButton);
+            Controls.Add(searchTextBox);
             Controls.Add(materialLabel6);
             Controls.Add(txtGenre);
             Controls.Add(materialLabel5);
@@ -356,6 +411,8 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtGenre;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialTextBox2 searchTextBox;
+        private MaterialSkin.Controls.MaterialButton searchButton;
     }
 
 }

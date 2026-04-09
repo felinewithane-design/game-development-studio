@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace game_development_studio
 {
-    public class Project : Entity
+    public class Project : Entity, IEntity
     {
+        public bool Search(string searchString)
+        {
+            return Title!.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
+                Genre!.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
+                Status!.Contains(searchString, StringComparison.OrdinalIgnoreCase);
+        }
         public string? Title { get; set; }
         public string? Genre { get; set; }
         public decimal Budget { get; set; }
@@ -37,6 +43,20 @@ namespace game_development_studio
             StartDate = startDate;
         }
 
+        public string this[int index]
+        {
+            get
+            {
+                return index switch
+                {
+                    0 => Title ?? "",
+                    1 => Genre ?? "",
+                    2 => Status ?? "",
+                    3 => Budget.ToString("F2"),
+                    _ => throw new IndexOutOfRangeException("Index must be between 0 and 3.")
+                };
+            }
+        }
         public new bool IsValid()
         {
             return base.IsValid() &&

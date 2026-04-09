@@ -79,6 +79,7 @@ namespace game_development_studio
                 };
 
                 FileManager.Add(project);
+                DataManager.Add(project);
 
                 txtTitle.Clear();
                 txtBudget.Clear();
@@ -102,6 +103,13 @@ namespace game_development_studio
 
             foreach (var p in projects)
             {
+                if (!DataManager.Entities.Contains(p))
+
+                    DataManager.Add(p);
+            }
+
+            foreach (var p in projects)
+            {
                 var item = new ListViewItem(p.Title ?? "");
                 item.SubItems.Add(p.Genre ?? "");
                 item.SubItems.Add(p.Status ?? "");
@@ -111,8 +119,31 @@ namespace game_development_studio
             }
         }
 
+
         // ── unused auto-generated handlers ──────────────────────────────
-        private void materialListView1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void materialListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewProjects.SelectedItems.Count == 0)
+                return;
+
+            var selectedTitle = listViewProjects.SelectedItems[0].Text;
+
+            var project = DataManager.Entities
+                .OfType<Project>()
+                .FirstOrDefault(p => p.Title == selectedTitle);
+
+            if (project != null)
+            {
+                IEntity entity = project;
+                MaterialMessageBox.Show(
+                    $"Accessed via indexer:\n" +
+                    $"[0] Title: {entity[0]}\n" +
+                    $"[1] Genre: {entity[1]}\n" +
+                    $"[2] Status: {entity[2]}\n" +
+                    $"[3] Budget: {entity[3]}"
+                );
+            }
+        }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
         private void materialMultiLineTextBox22_Click(object sender, EventArgs e) { }
         private void materialLabel1_Click(object sender, EventArgs e) { }
@@ -122,5 +153,51 @@ namespace game_development_studio
         private void materialLabel4_Click(object sender, EventArgs e) { }
         private void materialLabel5_Click(object sender, EventArgs e) { }
         private void materialLabel6_Click(object sender, EventArgs e) { }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (!DataManager.Entities.Any())
+                    return;
+
+                listViewProjects.Items.Clear();
+
+                IEnumerable<IEntity> foundEntities;
+
+                if (string.IsNullOrEmpty(searchTextBox.Text))
+                {
+                    foundEntities = DataManager.Entities;
+                }
+                else
+                {
+                    foundEntities = DataManager.Search(searchTextBox.Text);
+                }
+
+                foreach (IEntity entity in foundEntities)
+                {
+                    var project = entity as Project;
+                    if (project != null)
+                    {
+                        var item = new ListViewItem(project.Title ?? "");
+                        item.SubItems.Add(project.Genre ?? "");
+                        item.SubItems.Add(project.Status ?? "");
+                        item.SubItems.Add(project.StartDate?.ToString("dd/MM/yyyy") ?? "");
+                        item.SubItems.Add(project.Deadline?.ToString("dd/MM/yyyy") ?? "");
+                        listViewProjects.Items.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialMessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        private void searchTextBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
