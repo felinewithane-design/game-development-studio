@@ -115,6 +115,7 @@ namespace game_development_studio
                 item.SubItems.Add(p.Status ?? "");
                 item.SubItems.Add(p.StartDate?.ToString("dd/MM/yyyy") ?? "");
                 item.SubItems.Add(p.Deadline?.ToString("dd/MM/yyyy") ?? "");
+                item.SubItems.Add(p.Budget.ToString("F2"));
                 listViewProjects.Items.Add(item);
             }
         }
@@ -198,6 +199,97 @@ namespace game_development_studio
         private void searchTextBox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialLabel9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool FilterProjectsByBudget(IEntity entity)
+        {
+            if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
+                from = decimal.MinValue;
+            if (!decimal.TryParse(budgetToTextBox.Text, out decimal to))
+                to = decimal.MaxValue;
+
+            if (entity is Project project && project.Budget > 0)
+                return project.Budget >= from && project.Budget <= to;
+
+            return false;
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!DataManager.Entities.Any())
+                    return;
+
+                listViewProjects.Items.Clear();
+
+                IEnumerable<IEntity> filteredEntities;
+
+                if (string.IsNullOrEmpty(budgetFromTextBox.Text) ||
+                    string.IsNullOrEmpty(budgetToTextBox.Text))
+                {
+                    filteredEntities = DataManager.Entities;
+                }
+                else
+                {
+                    //filteredEntities = DataManager.Filter(FilterProjectsByBudget);
+
+                    ////Anonymous method
+                    //filteredEntities = DataManager.Filter(
+                    //    delegate (IEntity entity)
+                    //    {
+                    //        if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
+                    //            from = decimal.MinValue;
+                    //        if (!decimal.TryParse(budgetToTextBox.Text, out decimal to))
+                    //            to = decimal.MaxValue;
+
+                    //        if (entity is Project project && project.Budget > 0)
+                    //            return project.Budget >= from && project.Budget <= to;
+                    //        return false;
+                    //    });
+
+
+                    //lambda
+                    filteredEntities = DataManager.Filter(entity =>
+                    {
+                        if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
+                            from = decimal.MinValue;
+                        if (!decimal.TryParse(budgetToTextBox.Text, out decimal to))
+                            to = decimal.MaxValue;
+                        if (entity is Project project && project.Budget > 0)
+                            return project.Budget >= from && project.Budget <= to;
+                        return false;
+                    });
+                }
+
+                foreach (IEntity entity in filteredEntities)
+                {
+                    if (entity is Project p)
+                    {
+                        var item = new ListViewItem(p.Title ?? "");
+                        item.SubItems.Add(p.Genre ?? "");
+                        item.SubItems.Add(p.Status ?? "");
+                        item.SubItems.Add(p.StartDate?.ToString("dd/MM/yyyy") ?? "");
+                        item.SubItems.Add(p.Deadline?.ToString("dd/MM/yyyy") ?? "");
+                        item.SubItems.Add(p.Budget.ToString("F2"));
+                        listViewProjects.Items.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MaterialMessageBox.Show($"Error: {ex.Message}");
+            }
         }
     }
 }

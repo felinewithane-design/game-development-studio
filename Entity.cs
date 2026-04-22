@@ -19,7 +19,7 @@ namespace game_development_studio {
 
         public Entity()
         {
-            Id= Guid.NewGuid();
+            Id = Guid.NewGuid();
         }
 
         public Entity(Guid id)

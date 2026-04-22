@@ -35,6 +35,7 @@
             Status = new ColumnHeader();
             StartDate = new ColumnHeader();
             Deadline = new ColumnHeader();
+            Budget = new ColumnHeader();
             txtBudget = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             txtTitle = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             dtpDeadline = new DateTimePicker();
@@ -50,6 +51,13 @@
             materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             searchTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             searchButton = new MaterialSkin.Controls.MaterialButton();
+            budgetFromTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            budgetToTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            filterButton = new MaterialSkin.Controls.MaterialButton();
             SuspendLayout();
             // 
             // listViewProjects
@@ -57,16 +65,16 @@
             listViewProjects.AutoSizeTable = false;
             listViewProjects.BackColor = Color.FromArgb(255, 255, 255);
             listViewProjects.BorderStyle = BorderStyle.None;
-            listViewProjects.Columns.AddRange(new ColumnHeader[] { Title, Genre, Status, StartDate, Deadline });
+            listViewProjects.Columns.AddRange(new ColumnHeader[] { Title, Genre, Status, StartDate, Deadline, Budget });
             listViewProjects.Depth = 0;
             listViewProjects.FullRowSelect = true;
-            listViewProjects.Location = new Point(6, 160);
+            listViewProjects.Location = new Point(6, 201);
             listViewProjects.MinimumSize = new Size(200, 100);
             listViewProjects.MouseLocation = new Point(-1, -1);
             listViewProjects.MouseState = MaterialSkin.MouseState.OUT;
             listViewProjects.Name = "listViewProjects";
             listViewProjects.OwnerDraw = true;
-            listViewProjects.Size = new Size(655, 477);
+            listViewProjects.Size = new Size(829, 436);
             listViewProjects.TabIndex = 0;
             listViewProjects.UseCompatibleStateImageBehavior = false;
             listViewProjects.View = View.Details;
@@ -97,6 +105,11 @@
             Deadline.Text = "Deadline";
             Deadline.Width = 120;
             // 
+            // Budget
+            // 
+            Budget.Text = "Budget";
+            Budget.Width = 120;
+            // 
             // txtBudget
             // 
             txtBudget.AnimateReadOnly = false;
@@ -104,7 +117,7 @@
             txtBudget.CharacterCasing = CharacterCasing.Normal;
             txtBudget.Depth = 0;
             txtBudget.HideSelection = true;
-            txtBudget.Location = new Point(667, 142);
+            txtBudget.Location = new Point(945, 142);
             txtBudget.MaxLength = 32767;
             txtBudget.MouseState = MaterialSkin.MouseState.OUT;
             txtBudget.Name = "txtBudget";
@@ -115,7 +128,7 @@
             txtBudget.SelectionLength = 0;
             txtBudget.SelectionStart = 0;
             txtBudget.ShortcutsEnabled = true;
-            txtBudget.Size = new Size(245, 50);
+            txtBudget.Size = new Size(245, 53);
             txtBudget.TabIndex = 1;
             txtBudget.TabStop = false;
             txtBudget.TextAlign = HorizontalAlignment.Left;
@@ -129,7 +142,7 @@
             txtTitle.CharacterCasing = CharacterCasing.Normal;
             txtTitle.Depth = 0;
             txtTitle.HideSelection = true;
-            txtTitle.Location = new Point(667, 86);
+            txtTitle.Location = new Point(945, 86);
             txtTitle.MaxLength = 32767;
             txtTitle.MouseState = MaterialSkin.MouseState.OUT;
             txtTitle.Name = "txtTitle";
@@ -151,7 +164,7 @@
             // 
             dtpDeadline.CustomFormat = "dd/MM/yyyy hh:mm tt";
             dtpDeadline.Format = DateTimePickerFormat.Custom;
-            dtpDeadline.Location = new Point(689, 369);
+            dtpDeadline.Location = new Point(930, 369);
             dtpDeadline.Name = "dtpDeadline";
             dtpDeadline.Size = new Size(260, 27);
             dtpDeadline.TabIndex = 3;
@@ -161,7 +174,7 @@
             // 
             dtpStartDate.CustomFormat = "dd/MM/yyyy hh:mm tt";
             dtpStartDate.Format = DateTimePickerFormat.Custom;
-            dtpStartDate.Location = new Point(690, 419);
+            dtpStartDate.Location = new Point(930, 419);
             dtpStartDate.Name = "dtpStartDate";
             dtpStartDate.Size = new Size(260, 27);
             dtpStartDate.TabIndex = 4;
@@ -171,7 +184,7 @@
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(918, 77);
+            materialLabel1.Location = new Point(1196, 86);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(32, 19);
@@ -184,7 +197,7 @@
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(918, 142);
+            materialLabel2.Location = new Point(1196, 142);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(51, 19);
@@ -198,7 +211,7 @@
             btnADDPROJECT.Depth = 0;
             btnADDPROJECT.HighEmphasis = true;
             btnADDPROJECT.Icon = null;
-            btnADDPROJECT.Location = new Point(727, 552);
+            btnADDPROJECT.Location = new Point(930, 558);
             btnADDPROJECT.Margin = new Padding(4, 6, 4, 6);
             btnADDPROJECT.MouseState = MaterialSkin.MouseState.HOVER;
             btnADDPROJECT.Name = "btnADDPROJECT";
@@ -218,7 +231,7 @@
             txtStatus.CharacterCasing = CharacterCasing.Normal;
             txtStatus.Depth = 0;
             txtStatus.HideSelection = true;
-            txtStatus.Location = new Point(667, 198);
+            txtStatus.Location = new Point(945, 201);
             txtStatus.MaxLength = 32767;
             txtStatus.MouseState = MaterialSkin.MouseState.OUT;
             txtStatus.Name = "txtStatus";
@@ -241,7 +254,7 @@
             materialLabel3.AutoSize = true;
             materialLabel3.Depth = 0;
             materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(918, 198);
+            materialLabel3.Location = new Point(1196, 198);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
             materialLabel3.Size = new Size(47, 19);
@@ -254,7 +267,7 @@
             materialLabel4.AutoSize = true;
             materialLabel4.Depth = 0;
             materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(956, 419);
+            materialLabel4.Location = new Point(1196, 419);
             materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel4.Name = "materialLabel4";
             materialLabel4.Size = new Size(72, 19);
@@ -267,7 +280,7 @@
             materialLabel5.AutoSize = true;
             materialLabel5.Depth = 0;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(955, 369);
+            materialLabel5.Location = new Point(1205, 369);
             materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
             materialLabel5.Size = new Size(63, 19);
@@ -282,7 +295,7 @@
             txtGenre.CharacterCasing = CharacterCasing.Normal;
             txtGenre.Depth = 0;
             txtGenre.HideSelection = true;
-            txtGenre.Location = new Point(667, 254);
+            txtGenre.Location = new Point(945, 257);
             txtGenre.MaxLength = 32767;
             txtGenre.MouseState = MaterialSkin.MouseState.OUT;
             txtGenre.Name = "txtGenre";
@@ -304,7 +317,7 @@
             materialLabel6.AutoSize = true;
             materialLabel6.Depth = 0;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel6.Location = new Point(918, 254);
+            materialLabel6.Location = new Point(1196, 254);
             materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(42, 19);
@@ -362,11 +375,143 @@
             searchButton.UseVisualStyleBackColor = true;
             searchButton.Click += searchButton_Click;
             // 
+            // budgetFromTextBox
+            // 
+            budgetFromTextBox.AnimateReadOnly = false;
+            budgetFromTextBox.BackgroundImageLayout = ImageLayout.None;
+            budgetFromTextBox.CharacterCasing = CharacterCasing.Normal;
+            budgetFromTextBox.Depth = 0;
+            budgetFromTextBox.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            budgetFromTextBox.HideSelection = true;
+            budgetFromTextBox.LeadingIcon = null;
+            budgetFromTextBox.Location = new Point(456, 126);
+            budgetFromTextBox.MaxLength = 32767;
+            budgetFromTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            budgetFromTextBox.Name = "budgetFromTextBox";
+            budgetFromTextBox.PasswordChar = '\0';
+            budgetFromTextBox.PrefixSuffixText = null;
+            budgetFromTextBox.ReadOnly = false;
+            budgetFromTextBox.RightToLeft = RightToLeft.No;
+            budgetFromTextBox.SelectedText = "";
+            budgetFromTextBox.SelectionLength = 0;
+            budgetFromTextBox.SelectionStart = 0;
+            budgetFromTextBox.ShortcutsEnabled = true;
+            budgetFromTextBox.Size = new Size(164, 48);
+            budgetFromTextBox.TabIndex = 16;
+            budgetFromTextBox.TabStop = false;
+            budgetFromTextBox.TextAlign = HorizontalAlignment.Left;
+            budgetFromTextBox.TrailingIcon = null;
+            budgetFromTextBox.UseSystemPasswordChar = false;
+            // 
+            // budgetToTextBox
+            // 
+            budgetToTextBox.AnimateReadOnly = false;
+            budgetToTextBox.BackgroundImageLayout = ImageLayout.None;
+            budgetToTextBox.CharacterCasing = CharacterCasing.Normal;
+            budgetToTextBox.Depth = 0;
+            budgetToTextBox.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            budgetToTextBox.HideSelection = true;
+            budgetToTextBox.LeadingIcon = null;
+            budgetToTextBox.Location = new Point(671, 126);
+            budgetToTextBox.MaxLength = 32767;
+            budgetToTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            budgetToTextBox.Name = "budgetToTextBox";
+            budgetToTextBox.PasswordChar = '\0';
+            budgetToTextBox.PrefixSuffixText = null;
+            budgetToTextBox.ReadOnly = false;
+            budgetToTextBox.RightToLeft = RightToLeft.No;
+            budgetToTextBox.SelectedText = "";
+            budgetToTextBox.SelectionLength = 0;
+            budgetToTextBox.SelectionStart = 0;
+            budgetToTextBox.ShortcutsEnabled = true;
+            budgetToTextBox.Size = new Size(164, 48);
+            budgetToTextBox.TabIndex = 17;
+            budgetToTextBox.TabStop = false;
+            budgetToTextBox.TextAlign = HorizontalAlignment.Left;
+            budgetToTextBox.TrailingIcon = null;
+            budgetToTextBox.UseSystemPasswordChar = false;
+            // 
+            // materialLabel7
+            // 
+            materialLabel7.AutoSize = true;
+            materialLabel7.Depth = 0;
+            materialLabel7.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel7.Location = new Point(514, 104);
+            materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel7.Name = "materialLabel7";
+            materialLabel7.Size = new Size(38, 19);
+            materialLabel7.TabIndex = 18;
+            materialLabel7.Text = "From";
+            materialLabel7.Click += materialLabel7_Click;
+            // 
+            // materialLabel8
+            // 
+            materialLabel8.AutoSize = true;
+            materialLabel8.Depth = 0;
+            materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel8.Location = new Point(686, 104);
+            materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel8.Name = "materialLabel8";
+            materialLabel8.Size = new Size(20, 19);
+            materialLabel8.TabIndex = 19;
+            materialLabel8.Text = "To";
+            // 
+            // materialLabel9
+            // 
+            materialLabel9.AutoSize = true;
+            materialLabel9.Depth = 0;
+            materialLabel9.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel9.Location = new Point(640, 142);
+            materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel9.Name = "materialLabel9";
+            materialLabel9.Size = new Size(5, 19);
+            materialLabel9.TabIndex = 20;
+            materialLabel9.Text = "-";
+            materialLabel9.Click += materialLabel9_Click;
+            // 
+            // materialLabel10
+            // 
+            materialLabel10.AutoSize = true;
+            materialLabel10.Depth = 0;
+            materialLabel10.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel10.Location = new Point(475, 75);
+            materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel10.Name = "materialLabel10";
+            materialLabel10.Size = new Size(77, 19);
+            materialLabel10.TabIndex = 21;
+            materialLabel10.Text = "Set budget";
+            // 
+            // filterButton
+            // 
+            filterButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            filterButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            filterButton.Depth = 0;
+            filterButton.HighEmphasis = true;
+            filterButton.Icon = (Image)resources.GetObject("filterButton.Icon");
+            filterButton.Location = new Point(842, 138);
+            filterButton.Margin = new Padding(4, 6, 4, 6);
+            filterButton.MouseState = MaterialSkin.MouseState.HOVER;
+            filterButton.Name = "filterButton";
+            filterButton.NoAccentTextColor = Color.Empty;
+            filterButton.Size = new Size(96, 36);
+            filterButton.TabIndex = 22;
+            filterButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            filterButton.UseAccentColor = false;
+            filterButton.UseVisualStyleBackColor = true;
+            filterButton.Click += materialButton1_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1310, 643);
+            Controls.Add(filterButton);
+            Controls.Add(materialLabel10);
+            Controls.Add(materialLabel9);
+            Controls.Add(materialLabel8);
+            Controls.Add(materialLabel7);
+            Controls.Add(budgetToTextBox);
+            Controls.Add(budgetFromTextBox);
             Controls.Add(searchButton);
             Controls.Add(searchTextBox);
             Controls.Add(materialLabel6);
@@ -413,6 +558,14 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialTextBox2 searchTextBox;
         private MaterialSkin.Controls.MaterialButton searchButton;
+        private ColumnHeader Budget;
+        private MaterialSkin.Controls.MaterialTextBox2 budgetFromTextBox;
+        private MaterialSkin.Controls.MaterialTextBox2 budgetToTextBox;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private MaterialSkin.Controls.MaterialLabel materialLabel10;
+        private MaterialSkin.Controls.MaterialButton filterButton;
     }
 
 }
