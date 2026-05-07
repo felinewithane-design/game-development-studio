@@ -10,6 +10,7 @@ namespace game_development_studio
 {
     public static class FileManager
     {
+        private static List<Project> _projectCache = [];
         public static void Add(Entity entity)
         {
             if (entity == null)
@@ -25,13 +26,12 @@ namespace game_development_studio
             }
         }
 
-        public static List<T> LoadAll<T>() where T : Entity, new()
+        public static IEnumerable<T> LoadAll<T>() where T : Entity, new()
         {
-            var list = new List<T>();
             string fileName = new T().FileName;
 
             if (!File.Exists(fileName))
-                return list;
+                yield break;
 
             using (var reader = new StreamReader(fileName))
             {
@@ -43,15 +43,14 @@ namespace game_development_studio
 
                     T entity = new T();
                     entity.Parse(line);
-                    list.Add(entity);
+                    yield return entity;
                 }
             }
-            return list;
         }
             public static string ViewAllProjects()
             {
                 var projects = LoadAll<Project>();
-                if (projects.Count == 0)
+                if (!projects.Any())
                     return "No projects found.";
 
                 string result = "=== Projects ===\n";
@@ -60,11 +59,10 @@ namespace game_development_studio
                 return result;
             }
 
-        private static List<Project> _projectCache = new List<Project>();
 
         public static void RefreshCache()
         {
-            _projectCache = LoadAll<Project>();
+            _projectCache = LoadAll<Project>().ToList();
         }
     }
     }

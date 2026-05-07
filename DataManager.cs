@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace game_development_studio
 {
-    internal class DataManager
+    public class DataManager<T> where T : IEntity
     {
-        public static IEnumerable<IEntity> Entities { get; private set; } = new List<IEntity>();
+        public static IEnumerable<T> Entities { get; private set; } = new List<T>();
 
-        public static void Add(IEntity entity)
+        public static void Add(T entity)
         {
             Entities=Entities.Append(entity);
         }
 
-        public static IEnumerable<IEntity> Search(string searchString)
+        public static IEnumerable<T> Search(string searchString)
         {
             foreach (var entity in Entities)
             {
@@ -26,7 +26,7 @@ namespace game_development_studio
             }
         }
 
-        public static IEnumerable<IEntity> Filter(FilterDelegate filter)
+        public static IEnumerable<T> Filter(FilterDelegate<T> filter)
         {
             foreach (var entity in Entities)
             {

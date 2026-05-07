@@ -79,7 +79,7 @@ namespace game_development_studio
                 };
 
                 FileManager.Add(project);
-                DataManager.Add(project);
+                DataManager<Project>.Add(project);
 
                 txtTitle.Clear();
                 txtBudget.Clear();
@@ -99,13 +99,13 @@ namespace game_development_studio
         {
             listViewProjects.Items.Clear();
 
-            List<Project> projects = FileManager.LoadAll<Project>();
+            List<Project> projects = FileManager.LoadAll<Project>().ToList();
 
             foreach (var p in projects)
             {
-                if (!DataManager.Entities.Contains(p))
+                if (!DataManager<Project>.Entities.Contains(p))
 
-                    DataManager.Add(p);
+                    DataManager<Project>.Add(p);
             }
 
             foreach (var p in projects)
@@ -129,7 +129,7 @@ namespace game_development_studio
 
             var selectedTitle = listViewProjects.SelectedItems[0].Text;
 
-            var project = DataManager.Entities
+            var project = DataManager<Project>.Entities
                 .OfType<Project>()
                 .FirstOrDefault(p => p.Title == selectedTitle);
 
@@ -160,7 +160,7 @@ namespace game_development_studio
 
             try
             {
-                if (!DataManager.Entities.Any())
+                if (!DataManager<Project>.Entities.Any())
                     return;
 
                 listViewProjects.Items.Clear();
@@ -169,11 +169,11 @@ namespace game_development_studio
 
                 if (string.IsNullOrEmpty(searchTextBox.Text))
                 {
-                    foundEntities = DataManager.Entities;
+                    foundEntities = DataManager<Project>.Entities;
                 }
                 else
                 {
-                    foundEntities = DataManager.Search(searchTextBox.Text);
+                    foundEntities = DataManager<Project>.Search(searchTextBox.Text);
                 }
 
                 foreach (IEntity entity in foundEntities)
@@ -211,24 +211,24 @@ namespace game_development_studio
 
         }
 
-        private bool FilterProjectsByBudget(IEntity entity)
-        {
-            if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
-                from = decimal.MinValue;
-            if (!decimal.TryParse(budgetToTextBox.Text, out decimal to))
-                to = decimal.MaxValue;
+        //private bool FilterProjectsByBudget(IEntity entity)
+        //{
+        //    if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
+        //        from = decimal.MinValue;
+        //    if (!decimal.TryParse(budgetToTextBox.Text, out decimal to))
+        //        to = decimal.MaxValue;
 
-            if (entity is Project project && project.Budget > 0)
-                return project.Budget >= from && project.Budget <= to;
+        //    if (entity is Project project && project.Budget > 0)
+        //        return project.Budget >= from && project.Budget <= to;
 
-            return false;
-        }
+        //    return false;
+        //}
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!DataManager.Entities.Any())
+                if (!DataManager<Project>.Entities.Any())
                     return;
 
                 listViewProjects.Items.Clear();
@@ -238,7 +238,7 @@ namespace game_development_studio
                 if (string.IsNullOrEmpty(budgetFromTextBox.Text) ||
                     string.IsNullOrEmpty(budgetToTextBox.Text))
                 {
-                    filteredEntities = DataManager.Entities;
+                    filteredEntities = DataManager<Project>.Entities;
                 }
                 else
                 {
@@ -260,7 +260,7 @@ namespace game_development_studio
 
 
                     //lambda
-                    filteredEntities = DataManager.Filter(entity =>
+                    filteredEntities = DataManager<Project>.Filter(entity =>
                     {
                         if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
                             from = decimal.MinValue;

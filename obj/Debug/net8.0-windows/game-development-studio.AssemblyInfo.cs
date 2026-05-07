@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("game-development-studio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e1d2653b395290663a1569afab8730fcb2d707a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f1cad59ec73b1b5b6e6ae7ca733eb1f04516ec3")]
 [assembly: System.Reflection.AssemblyProductAttribute("game-development-studio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("game-development-studio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
