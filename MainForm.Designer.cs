@@ -57,7 +57,15 @@
             materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            filterButton = new MaterialSkin.Controls.MaterialButton();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            prevButton = new MaterialSkin.Controls.MaterialButton();
+            nextButton = new MaterialSkin.Controls.MaterialButton();
+            pageNumberTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            countTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            maxBudgetTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            loadSourceButton = new MaterialSkin.Controls.MaterialButton();
+            openFileDialog = new OpenFileDialog();
             SuspendLayout();
             // 
             // listViewProjects
@@ -211,7 +219,7 @@
             btnADDPROJECT.Depth = 0;
             btnADDPROJECT.HighEmphasis = true;
             btnADDPROJECT.Icon = null;
-            btnADDPROJECT.Location = new Point(930, 558);
+            btnADDPROJECT.Location = new Point(930, 455);
             btnADDPROJECT.Margin = new Padding(4, 6, 4, 6);
             btnADDPROJECT.MouseState = MaterialSkin.MouseState.HOVER;
             btnADDPROJECT.Name = "btnADDPROJECT";
@@ -481,31 +489,210 @@
             materialLabel10.TabIndex = 21;
             materialLabel10.Text = "Set budget";
             // 
-            // filterButton
+            // materialButton1
             // 
-            filterButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            filterButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            filterButton.Depth = 0;
-            filterButton.HighEmphasis = true;
-            filterButton.Icon = (Image)resources.GetObject("filterButton.Icon");
-            filterButton.Location = new Point(842, 138);
-            filterButton.Margin = new Padding(4, 6, 4, 6);
-            filterButton.MouseState = MaterialSkin.MouseState.HOVER;
-            filterButton.Name = "filterButton";
-            filterButton.NoAccentTextColor = Color.Empty;
-            filterButton.Size = new Size(96, 36);
-            filterButton.TabIndex = 22;
-            filterButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            filterButton.UseAccentColor = false;
-            filterButton.UseVisualStyleBackColor = true;
-            filterButton.Click += materialButton1_Click;
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = (Image)resources.GetObject("materialButton1.Icon");
+            materialButton1.Location = new Point(853, 93);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(64, 36);
+            materialButton1.TabIndex = 22;
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Click += materialButton1_Click;
+            // 
+            // materialButton2
+            // 
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton2.Depth = 0;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = (Image)resources.GetObject("materialButton2.Icon");
+            materialButton2.Location = new Point(853, 142);
+            materialButton2.Margin = new Padding(4, 6, 4, 6);
+            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.NoAccentTextColor = Color.Empty;
+            materialButton2.Size = new Size(64, 36);
+            materialButton2.TabIndex = 23;
+            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton2.UseAccentColor = false;
+            materialButton2.UseVisualStyleBackColor = true;
+            materialButton2.Click += materialButton2_Click;
+            // 
+            // prevButton
+            // 
+            prevButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            prevButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            prevButton.Depth = 0;
+            prevButton.HighEmphasis = true;
+            prevButton.Icon = null;
+            prevButton.Location = new Point(818, 676);
+            prevButton.Margin = new Padding(4, 6, 4, 6);
+            prevButton.MouseState = MaterialSkin.MouseState.HOVER;
+            prevButton.Name = "prevButton";
+            prevButton.NoAccentTextColor = Color.Empty;
+            prevButton.Size = new Size(64, 36);
+            prevButton.TabIndex = 0;
+            prevButton.Text = "PREV";
+            prevButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            prevButton.UseAccentColor = false;
+            prevButton.UseVisualStyleBackColor = true;
+            prevButton.Click += prevButton_Click;
+            // 
+            // nextButton
+            // 
+            nextButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            nextButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            nextButton.Depth = 0;
+            nextButton.HighEmphasis = true;
+            nextButton.Icon = null;
+            nextButton.Location = new Point(1251, 676);
+            nextButton.Margin = new Padding(4, 6, 4, 6);
+            nextButton.MouseState = MaterialSkin.MouseState.HOVER;
+            nextButton.Name = "nextButton";
+            nextButton.NoAccentTextColor = Color.Empty;
+            nextButton.Size = new Size(64, 36);
+            nextButton.TabIndex = 24;
+            nextButton.Text = "NEXT";
+            nextButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            nextButton.UseAccentColor = false;
+            nextButton.UseVisualStyleBackColor = true;
+            nextButton.Click += nextButton_Click;
+            // 
+            // pageNumberTextBox
+            // 
+            pageNumberTextBox.AnimateReadOnly = false;
+            pageNumberTextBox.BackgroundImageLayout = ImageLayout.None;
+            pageNumberTextBox.CharacterCasing = CharacterCasing.Normal;
+            pageNumberTextBox.Depth = 0;
+            pageNumberTextBox.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            pageNumberTextBox.HideSelection = true;
+            pageNumberTextBox.LeadingIcon = null;
+            pageNumberTextBox.Location = new Point(916, 676);
+            pageNumberTextBox.MaxLength = 32767;
+            pageNumberTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            pageNumberTextBox.Name = "pageNumberTextBox";
+            pageNumberTextBox.PasswordChar = '\0';
+            pageNumberTextBox.PrefixSuffixText = null;
+            pageNumberTextBox.ReadOnly = true;
+            pageNumberTextBox.RightToLeft = RightToLeft.No;
+            pageNumberTextBox.SelectedText = "";
+            pageNumberTextBox.SelectionLength = 0;
+            pageNumberTextBox.SelectionStart = 0;
+            pageNumberTextBox.ShortcutsEnabled = true;
+            pageNumberTextBox.Size = new Size(312, 48);
+            pageNumberTextBox.TabIndex = 25;
+            pageNumberTextBox.TabStop = false;
+            pageNumberTextBox.Text = "1";
+            pageNumberTextBox.TextAlign = HorizontalAlignment.Left;
+            pageNumberTextBox.TrailingIcon = null;
+            pageNumberTextBox.UseSystemPasswordChar = false;
+            pageNumberTextBox.Click += pageNumberTextBox_Click;
+            // 
+            // countTextBox
+            // 
+            countTextBox.AnimateReadOnly = false;
+            countTextBox.BackgroundImageLayout = ImageLayout.None;
+            countTextBox.CharacterCasing = CharacterCasing.Normal;
+            countTextBox.Depth = 0;
+            countTextBox.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            countTextBox.HideSelection = true;
+            countTextBox.LeadingIcon = null;
+            countTextBox.Location = new Point(36, 676);
+            countTextBox.MaxLength = 32767;
+            countTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            countTextBox.Name = "countTextBox";
+            countTextBox.PasswordChar = '\0';
+            countTextBox.PrefixSuffixText = null;
+            countTextBox.ReadOnly = true;
+            countTextBox.RightToLeft = RightToLeft.No;
+            countTextBox.SelectedText = "";
+            countTextBox.SelectionLength = 0;
+            countTextBox.SelectionStart = 0;
+            countTextBox.ShortcutsEnabled = true;
+            countTextBox.Size = new Size(131, 48);
+            countTextBox.TabIndex = 26;
+            countTextBox.TabStop = false;
+            countTextBox.Text = "count";
+            countTextBox.TextAlign = HorizontalAlignment.Left;
+            countTextBox.TrailingIcon = null;
+            countTextBox.UseSystemPasswordChar = false;
+            // 
+            // maxBudgetTextBox
+            // 
+            maxBudgetTextBox.AnimateReadOnly = false;
+            maxBudgetTextBox.BackgroundImageLayout = ImageLayout.None;
+            maxBudgetTextBox.CharacterCasing = CharacterCasing.Normal;
+            maxBudgetTextBox.Depth = 0;
+            maxBudgetTextBox.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            maxBudgetTextBox.HideSelection = true;
+            maxBudgetTextBox.LeadingIcon = null;
+            maxBudgetTextBox.Location = new Point(194, 676);
+            maxBudgetTextBox.MaxLength = 32767;
+            maxBudgetTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            maxBudgetTextBox.Name = "maxBudgetTextBox";
+            maxBudgetTextBox.PasswordChar = '\0';
+            maxBudgetTextBox.PrefixSuffixText = null;
+            maxBudgetTextBox.ReadOnly = true;
+            maxBudgetTextBox.RightToLeft = RightToLeft.No;
+            maxBudgetTextBox.SelectedText = "";
+            maxBudgetTextBox.SelectionLength = 0;
+            maxBudgetTextBox.SelectionStart = 0;
+            maxBudgetTextBox.ShortcutsEnabled = true;
+            maxBudgetTextBox.Size = new Size(131, 48);
+            maxBudgetTextBox.TabIndex = 27;
+            maxBudgetTextBox.TabStop = false;
+            maxBudgetTextBox.Text = "budget";
+            maxBudgetTextBox.TextAlign = HorizontalAlignment.Left;
+            maxBudgetTextBox.TrailingIcon = null;
+            maxBudgetTextBox.UseSystemPasswordChar = false;
+            // 
+            // loadSourceButton
+            // 
+            loadSourceButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            loadSourceButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            loadSourceButton.Depth = 0;
+            loadSourceButton.HighEmphasis = true;
+            loadSourceButton.Icon = null;
+            loadSourceButton.Location = new Point(930, 554);
+            loadSourceButton.Margin = new Padding(4, 6, 4, 6);
+            loadSourceButton.MouseState = MaterialSkin.MouseState.HOVER;
+            loadSourceButton.Name = "loadSourceButton";
+            loadSourceButton.NoAccentTextColor = Color.Empty;
+            loadSourceButton.Size = new Size(158, 36);
+            loadSourceButton.TabIndex = 28;
+            loadSourceButton.Text = "load another source";
+            loadSourceButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            loadSourceButton.UseAccentColor = false;
+            loadSourceButton.UseVisualStyleBackColor = true;
+            loadSourceButton.Click += loadSourceButton_Click;
+            // 
+            // openFileDialog
+            // 
+            openFileDialog.FileName = "openFileDialog";
+            openFileDialog.FileOk += openFileDialog1_FileOk;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1310, 643);
-            Controls.Add(filterButton);
+            ClientSize = new Size(1601, 768);
+            Controls.Add(loadSourceButton);
+            Controls.Add(maxBudgetTextBox);
+            Controls.Add(countTextBox);
+            Controls.Add(pageNumberTextBox);
+            Controls.Add(nextButton);
+            Controls.Add(prevButton);
+            Controls.Add(materialButton2);
+            Controls.Add(materialButton1);
             Controls.Add(materialLabel10);
             Controls.Add(materialLabel9);
             Controls.Add(materialLabel8);
@@ -565,7 +752,15 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
-        private MaterialSkin.Controls.MaterialButton filterButton;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton prevButton;
+        private MaterialSkin.Controls.MaterialButton nextButton;
+        private MaterialSkin.Controls.MaterialTextBox2 pageNumberTextBox;
+        private MaterialSkin.Controls.MaterialTextBox2 countTextBox;
+        private MaterialSkin.Controls.MaterialTextBox2 maxBudgetTextBox;
+        private MaterialSkin.Controls.MaterialButton loadSourceButton;
+        private OpenFileDialog openFileDialog;
     }
 
 }

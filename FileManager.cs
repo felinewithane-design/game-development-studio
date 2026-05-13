@@ -26,13 +26,11 @@ namespace game_development_studio
             }
         }
 
-        public static IEnumerable<T> LoadAll<T>() where T : Entity, new()
+        public static IEnumerable<T> LoadAll<T>(string? filePath = null) where T : Entity, new()
         {
-            string fileName = new T().FileName;
-
+            string fileName = filePath ?? new T().FileName;
             if (!File.Exists(fileName))
                 yield break;
-
             using (var reader = new StreamReader(fileName))
             {
                 string line;
@@ -40,14 +38,13 @@ namespace game_development_studio
                 {
                     if (string.IsNullOrWhiteSpace(line))
                         continue;
-
                     T entity = new T();
                     entity.Parse(line);
                     yield return entity;
                 }
             }
         }
-            public static string ViewAllProjects()
+        public static string ViewAllProjects()
             {
                 var projects = LoadAll<Project>();
                 if (!projects.Any())

@@ -10,29 +10,28 @@ namespace game_development_studio
     {
         public static IEnumerable<T> Entities { get; private set; } = new List<T>();
 
+        public T? this[Guid id]
+        {
+            get
+            {
+                return Entities.FirstOrDefault(e => e.Id == id);
+            }
+        }
+
         public static void Add(T entity)
         {
-            Entities=Entities.Append(entity);
+            Entities = Entities.Append(entity);
         }
 
         public static IEnumerable<T> Search(string searchString)
         {
-            foreach (var entity in Entities)
-            {
-                if(entity.Search(searchString))
-                {
-                    yield return entity;
-                }
-            }
+            return Entities.Where(it => it.Search(searchString));
         }
 
-        public static IEnumerable<T> Filter(FilterDelegate<T> filter)
+        public static IEnumerable<T> Filter(Func<T, bool> filter)
         {
-            foreach (var entity in Entities)
-            {
-                if (filter.Invoke(entity))
-                    yield return entity;
-            }
+            return Entities.Where(filter);
         }
+
     }
 }

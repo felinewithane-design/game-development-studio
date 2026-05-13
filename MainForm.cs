@@ -1,8 +1,10 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
 
 namespace game_development_studio
 {
@@ -87,37 +89,29 @@ namespace game_development_studio
                 txtGenre.Clear();
 
                 RefreshProjectList();
-                MaterialMessageBox.Show("Project added successfully!");
             }
             catch (Exception ex)
             {
                 MaterialMessageBox.Show($"Error: {ex.Message}");
             }
+            RefreshProjectList();
+            CalculateStatistics();
+            MaterialMessageBox.Show("Project added successfully");
         }
 
         private void RefreshProjectList()
         {
-            listViewProjects.Items.Clear();
-
             List<Project> projects = FileManager.LoadAll<Project>().ToList();
 
             foreach (var p in projects)
             {
-                if (!DataManager<Project>.Entities.Contains(p))
+                if (!DataManager<Project>.Entities.Any(e => e.Id == p.Id))
 
                     DataManager<Project>.Add(p);
             }
 
-            foreach (var p in projects)
-            {
-                var item = new ListViewItem(p.Title ?? "");
-                item.SubItems.Add(p.Genre ?? "");
-                item.SubItems.Add(p.Status ?? "");
-                item.SubItems.Add(p.StartDate?.ToString("dd/MM/yyyy") ?? "");
-                item.SubItems.Add(p.Deadline?.ToString("dd/MM/yyyy") ?? "");
-                item.SubItems.Add(p.Budget.ToString("F2"));
-                listViewProjects.Items.Add(item);
-            }
+            Paginate();
+            CalculateStatistics();
         }
 
 
@@ -129,21 +123,13 @@ namespace game_development_studio
 
             var selectedTitle = listViewProjects.SelectedItems[0].Text;
 
-            var project = DataManager<Project>.Entities
-                .OfType<Project>()
-                .FirstOrDefault(p => p.Title == selectedTitle);
+            var data = DataManager<Project>.Entities
+                .Where(p => p.Title == selectedTitle)
+                .Select(p => $"Ttile: {p.Title} | Genre: {p.Genre} | Budget: {p.Budget:F2}")
+                .FirstOrDefault();
 
-            if (project != null)
-            {
-                IEntity entity = project;
-                MaterialMessageBox.Show(
-                    $"Accessed via indexer:\n" +
-                    $"[0] Title: {entity[0]}\n" +
-                    $"[1] Genre: {entity[1]}\n" +
-                    $"[2] Status: {entity[2]}\n" +
-                    $"[3] Budget: {entity[3]}"
-                );
-            }
+            if (!string.IsNullOrEmpty(data))
+                MaterialMessageBox.Show(data);
         }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) { }
         private void materialMultiLineTextBox22_Click(object sender, EventArgs e) { }
@@ -157,7 +143,6 @@ namespace game_development_studio
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (!DataManager<Project>.Entities.Any())
@@ -165,34 +150,45 @@ namespace game_development_studio
 
                 listViewProjects.Items.Clear();
 
-                IEnumerable<IEntity> foundEntities;
+                decimal.TryParse(budgetFromTextBox.Text, out decimal from);
+                decimal.TryParse(budgetToTextBox.Text, out decimal to);
 
-                if (string.IsNullOrEmpty(searchTextBox.Text))
-                {
-                    foundEntities = DataManager<Project>.Entities;
-                }
-                else
-                {
-                    foundEntities = DataManager<Project>.Search(searchTextBox.Text);
-                }
+                var foundEntities = DataManager<Project>.Entities.Where(e =>
+                    (string.IsNullOrEmpty(searchTextBox.Text) || e.Search(searchTextBox.Text)) &&
+                    (string.IsNullOrEmpty(budgetFromTextBox.Text) || e.Budget >= from) &&
+                    (string.IsNullOrEmpty(budgetToTextBox.Text) || e.Budget <= to)
+                );
 
-                foreach (IEntity entity in foundEntities)
+                foreach (var project in foundEntities)
                 {
-                    var project = entity as Project;
-                    if (project != null)
-                    {
-                        var item = new ListViewItem(project.Title ?? "");
-                        item.SubItems.Add(project.Genre ?? "");
-                        item.SubItems.Add(project.Status ?? "");
-                        item.SubItems.Add(project.StartDate?.ToString("dd/MM/yyyy") ?? "");
-                        item.SubItems.Add(project.Deadline?.ToString("dd/MM/yyyy") ?? "");
-                        listViewProjects.Items.Add(item);
-                    }
+                    var item = new ListViewItem(project.Title ?? "");
+                    item.SubItems.Add(project.Genre ?? "");
+                    item.SubItems.Add(project.Status ?? "");
+                    item.SubItems.Add(project.StartDate?.ToString("dd/MM/yyyy") ?? "");
+                    item.SubItems.Add(project.Deadline?.ToString("dd/MM/yyyy") ?? "");
+                    item.SubItems.Add(project.Budget.ToString("F2"));
+                    listViewProjects.Items.Add(item);
                 }
             }
             catch (Exception ex)
             {
                 MaterialMessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        // Helper method to display a list of projects in the ListView
+        private void DisplayProjects(IEnumerable<Project> projects)
+        {
+            listViewProjects.Items.Clear();
+            foreach (var project in projects)
+            {
+                var item = new ListViewItem(project.Title ?? "");
+                item.SubItems.Add(project.Genre ?? "");
+                item.SubItems.Add(project.Status ?? "");
+                item.SubItems.Add(project.StartDate?.ToString("dd/MM/yyyy") ?? "");
+                item.SubItems.Add(project.Deadline?.ToString("dd/MM/yyyy") ?? "");
+                item.SubItems.Add(project.Budget.ToString("F2"));
+                listViewProjects.Items.Add(item);
             }
         }
 
@@ -211,84 +207,105 @@ namespace game_development_studio
 
         }
 
-        //private bool FilterProjectsByBudget(IEntity entity)
-        //{
-        //    if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
-        //        from = decimal.MinValue;
-        //    if (!decimal.TryParse(budgetToTextBox.Text, out decimal to))
-        //        to = decimal.MaxValue;
-
-        //    if (entity is Project project && project.Budget > 0)
-        //        return project.Budget >= from && project.Budget <= to;
-
-        //    return false;
-        //}
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            try
+            var sorted = DataManager<Project>.Entities.OrderBy(p => p.Title).ThenBy(p => p.Genre);
+            DisplayProjects(sorted);
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            var sorted = DataManager<Project>.Entities.OrderByDescending(p => p.Title).ThenByDescending(p => p.Genre);
+
+            DisplayProjects(sorted);
+        }
+
+        private const int PAGE_LIMIT = 5;
+        private int currentPage = 0;
+
+        private void Paginate()
+        {
+            listViewProjects.Items.Clear();
+
+            var data = DataManager<Project>.Entities
+                .OrderBy(p => p.Title)
+                .ThenByDescending(p => p.Deadline)
+                .Skip(currentPage * PAGE_LIMIT)
+                .Take(PAGE_LIMIT)
+                .ToList();
+
+            data.ForEach(p =>
             {
-                if (!DataManager<Project>.Entities.Any())
-                    return;
+                var item = new ListViewItem(p.Title ?? "");
+                item.SubItems.Add(p.Genre ?? "");
+                item.SubItems.Add(p.Status ?? "");
+                item.SubItems.Add(p.StartDate?.ToString("dd/MM/yyyy") ?? "");
+                item.SubItems.Add(p.Deadline?.ToString("dd/MM/yyyy") ?? "");
+                item.SubItems.Add(p.Budget.ToString("F2"));
+                listViewProjects.Items.Add(item);
+            });
 
-                listViewProjects.Items.Clear();
+            pageNumberTextBox.Text = (currentPage + 1).ToString();
+        }
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            currentPage++;
+            Paginate();
+        }
 
-                IEnumerable<IEntity> filteredEntities;
-
-                if (string.IsNullOrEmpty(budgetFromTextBox.Text) ||
-                    string.IsNullOrEmpty(budgetToTextBox.Text))
-                {
-                    filteredEntities = DataManager<Project>.Entities;
-                }
-                else
-                {
-                    //filteredEntities = DataManager.Filter(FilterProjectsByBudget);
-
-                    ////Anonymous method
-                    //filteredEntities = DataManager.Filter(
-                    //    delegate (IEntity entity)
-                    //    {
-                    //        if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
-                    //            from = decimal.MinValue;
-                    //        if (!decimal.TryParse(budgetToTextBox.Text, out decimal to))
-                    //            to = decimal.MaxValue;
-
-                    //        if (entity is Project project && project.Budget > 0)
-                    //            return project.Budget >= from && project.Budget <= to;
-                    //        return false;
-                    //    });
-
-
-                    //lambda
-                    filteredEntities = DataManager<Project>.Filter(entity =>
-                    {
-                        if (!decimal.TryParse(budgetFromTextBox.Text, out decimal from))
-                            from = decimal.MinValue;
-                        if (!decimal.TryParse(budgetToTextBox.Text, out decimal to))
-                            to = decimal.MaxValue;
-                        if (entity is Project project && project.Budget > 0)
-                            return project.Budget >= from && project.Budget <= to;
-                        return false;
-                    });
-                }
-
-                foreach (IEntity entity in filteredEntities)
-                {
-                    if (entity is Project p)
-                    {
-                        var item = new ListViewItem(p.Title ?? "");
-                        item.SubItems.Add(p.Genre ?? "");
-                        item.SubItems.Add(p.Status ?? "");
-                        item.SubItems.Add(p.StartDate?.ToString("dd/MM/yyyy") ?? "");
-                        item.SubItems.Add(p.Deadline?.ToString("dd/MM/yyyy") ?? "");
-                        item.SubItems.Add(p.Budget.ToString("F2"));
-                        listViewProjects.Items.Add(item);
-                    }
-                }
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 0)
+            {
+                currentPage--;
+                Paginate();
             }
-            catch (Exception ex)
+        }
+
+        private void pageNumberTextBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CalculateStatistics()
+        {
+            var projectCount = DataManager<Project>.Entities.Count();
+
+            var maxBudget = DataManager<Project>.Entities.Any()
+                ? DataManager<Project>.Entities.Max(p => p.Budget)
+                : 0;
+
+            countTextBox.Text = projectCount.ToString();
+            maxBudgetTextBox.Text = maxBudget.ToString("F2");
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void loadSourceButton_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                MaterialMessageBox.Show($"Error: {ex.Message}");
+                // Load projects from the selected file
+                var otherProjects = FileManager.LoadAll<Project>(openFileDialog.FileName);
+
+                // Get the IDs of projects we already have
+                var currentIds = DataManager<Project>.Entities.Select(p => p.Id);
+
+                // ExceptBy removes any projects from otherProjects whose ID already exists
+                // This prevents duplicates when merging the two sources
+                var uniqueNewProjects = otherProjects.ExceptBy(currentIds, p => p.Id);
+
+                // Concat merges the two collections together
+                foreach (var p in uniqueNewProjects)
+                    DataManager<Project>.Add(p);
+
+                Paginate();
+                CalculateStatistics();
             }
         }
     }

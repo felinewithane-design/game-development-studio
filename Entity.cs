@@ -9,6 +9,7 @@ namespace game_development_studio {
 
     public interface IEntity
     {
+        Guid Id { get; set; }
         public bool Search(string searchString);
             string this[int index] { get; }
     }

@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace game_development_studio
 {
-      public delegate bool FilterDelegate<T>(T entity) where T : IEntity;
+
 }
