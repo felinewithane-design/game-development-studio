@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\dbconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:dbconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\database\\studiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:database\\studiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:migrations\\20260518184425_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\dbconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:dbconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|c:\\users\\cupca\\source\\repos\\game-development-studio\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5C999E2F-C4B5-4DA1-96B5-A19A0373D842}|game-development-studio.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -46,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "StudioManager.cs",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Database\\StudioManager.cs",
               "RelativeDocumentMoniker": "Database\\StudioManager.cs",
@@ -63,20 +63,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudioDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Database\\StudioDbContext.cs",
-              "RelativeDocumentMoniker": "Database\\StudioDbContext.cs",
-              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Database\\StudioDbContext.cs",
-              "RelativeToolTip": "Database\\StudioDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T05:39:08.54Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "20260518184425_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Migrations\\20260518184425_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20260518184425_InitialCreate.cs",
@@ -84,8 +71,7 @@
               "RelativeToolTip": "Migrations\\20260518184425_InitialCreate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T18:44:25.479Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-18T18:44:25.479Z"
             },
             {
               "$type": "Document",
@@ -97,24 +83,22 @@
               "RelativeToolTip": "MainForm.Designer.cs",
               "ViewState": "AgIAAPwBAAAAAAAAAAAUwA8CAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T15:00:55.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T15:00:55.373Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T07:33:58.658Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-13T07:33:58.658Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
@@ -122,12 +106,11 @@
               "RelativeToolTip": "MainForm.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAlwF0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T16:34:18.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-22T16:34:18.267Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ProjectModel.cs",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Database\\ProjectModel.cs",
               "RelativeDocumentMoniker": "Database\\ProjectModel.cs",
@@ -135,12 +118,11 @@
               "RelativeToolTip": "Database\\ProjectModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T08:25:45.41Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-20T08:25:45.41Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "dbconfig.json",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\dbconfig.json",
               "RelativeDocumentMoniker": "dbconfig.json",
@@ -153,6 +135,18 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudioDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Database\\StudioDbContext.cs",
+              "RelativeDocumentMoniker": "Database\\StudioDbContext.cs",
+              "ToolTip": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Database\\StudioDbContext.cs",
+              "RelativeToolTip": "Database\\StudioDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T05:39:08.54Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
               "Title": "20260519064332_AddNotesToProject.cs",
               "DocumentMoniker": "C:\\Users\\cupca\\source\\repos\\game-development-studio\\Migrations\\20260519064332_AddNotesToProject.cs",
@@ -161,8 +155,7 @@
               "RelativeToolTip": "Migrations\\20260519064332_AddNotesToProject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T06:43:32.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-19T06:43:32.47Z"
             }
           ]
         }
