@@ -83,6 +83,18 @@ namespace game_development_studio
                 FileManager.Add(project);
                 DataManager<Project>.Add(project);
 
+                //save to MySQL:
+                var dbProject = new game_development_studio.Database.ProjectModel
+                {
+                    Title = project.Title ?? "",
+                    Genre = project.Genre ?? "",
+                    Budget = project.Budget,
+                    Status = project.Status ?? "",
+                    StartDate = project.StartDate,
+                    Deadline = project.Deadline
+                };
+                game_development_studio.Database.StudioDataManager.AddProject(dbProject);
+
                 txtTitle.Clear();
                 txtBudget.Clear();
                 txtStatus.Clear();
@@ -97,6 +109,7 @@ namespace game_development_studio
             RefreshProjectList();
             CalculateStatistics();
             MaterialMessageBox.Show("Project added successfully");
+
         }
 
         private void RefreshProjectList()
